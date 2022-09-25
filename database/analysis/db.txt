@@ -1,0 +1,157 @@
+Struktur Database:
+1.user:
+- nama
+- email
+- no telepon
+- foto
+- kode otp
+- verifikasi otp
+
+2.driver:
+- nama
+- foto
+- sim driver id
+- status order
+- alamat
+- no telepon
+- kode otp
+- verifikasi otp
+
+3.broadcast:
+- transaksi id
+- driver id
+- lokasi
+
+3.transaksi:
+- ontrip id (nullable)
+- ontime id (nullable)
+- mobil id
+- pembayaran id (nullable)
+- rating id (nullable)
+- total harga
+- status pembayaran [belum-dibayar, sudah-dibayar, menunggu-konfirmasi]
+- jarak (nullable)
+- status perjalanan [dibatalkan, menunggu driver, menggu waktu order (jemput nanti), sedang perjalanan, selesai]
+- bukti pembayaran (nullable)
+- is_fotoAwal (nullable) foto di table: laporan_jaminan_driver
+- is_fotoAkhir (nullable)
+
+4.ontrip:
+- waktu_jemput
+- tanggal jemput
+- catatan
+
+5.ontime:
+- tanggal mulai
+- jam mulai
+- tanggal selesai
+- jam selesai
+- catatan
+
+6.destinasi:
+- on trip id
+- on time id
+- nama tempat
+- koordinat tempat
+- isJemput
+- isTujuan
+- tarif
+
+6.rating:
+- user id
+- driver id
+- rating
+- pesan
+
+8.laporan kerusakan user:
+- transaksi id
+- foto
+- pesan
+
+9.laporan jaminan driver:
+- transaksi_id
+- foto
+- pesan
+- isJaminanAwal
+- isJaminanAkhir
+
+10.pendapatan driver:
+- driver id
+- periode
+- jumlah pendapatan
+
+11.claim pendapatan:
+- driver id
+- nama bank
+- no rekening
+- nama pemilik rekening
+
+12.notifikasi_user:
+- user id
+- judul
+- pesan
+- is read
+
+13.notifikasi_driver:
+- driver id
+- judul
+- pesan
+- is read
+
+14.tarif_waktu:
+- waktu
+- harga
+
+15.tarif_jarak:
+- jarak
+- harga
+
+15.pembayaran:
+- metode
+
+16.room chat
+- user id
+- driver id
+- chat id
+
+17.chat
+- pesan
+- is read
+
+18.admin
+- username
+- password
+
+19.sim driver
+- driver id
+- sim id
+
+20.sim
+- nama sim
+
+20.jenis mobil
+- sim id
+- mobil id
+
+20.mobil
+- nama mobil
+
+20.panic
+- driver id (nullable)
+- user id (nullable)
+- waktu_terhubung
+- deleted at
+
+21.syarat ketentuan
+- keterangan
+- role
+
+22.Kebijakan
+- topik
+- bahasan
+- role
+
+23.foto_driver
+- foto
+- koordinat_driver (json)
+- driver id
